@@ -13,7 +13,7 @@
             {
                 getComments: {
                     params: {
-                        comments: 'comments',
+                        comments: 'comments'
                     },
                     method: 'GET',
                     isArray: true
