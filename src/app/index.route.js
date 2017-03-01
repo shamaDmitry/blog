@@ -10,7 +10,7 @@
     function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
 
-        var templates = 'templates/'
+        var templates = 'templates/';
 
         $stateProvider
             .state('home', {
