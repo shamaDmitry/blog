@@ -132,7 +132,7 @@ gulp.task("fonts", function() {
 //  - - - - - - - - - - - - - - - - - - - - -
 gulp.task('watch', function() {
     gulp.watch(path.project + '/*.html', ['html']);
-    gulp.watch(path.project + '/app/**/**/*.html', ['templates']);
+    gulp.watch(path.project + '/app/**/**/*.html', ['templates', 'stylesheets']);
     gulp.watch(path.project + '/app/**/**/*.scss', ['stylesheets']);
     gulp.watch(path.project + '/app/*.scss', ['stylesheets']);
     gulp.watch(path.project + '/app/**/*.js', ['minAppJs']);

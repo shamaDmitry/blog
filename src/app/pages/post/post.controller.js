@@ -13,10 +13,16 @@
 
         vm.postTitle = postId;
         vm.postData = [];
+        vm.commentData = [];
 
         getCurrentPost();
         function getCurrentPost() {
             vm.postData = PostsService.get('id', {id: postId});
+        }
+
+        getComments()
+        function getComments() {
+            vm.commentData = PostsService.getComments({id: postId});
         }
     }
 

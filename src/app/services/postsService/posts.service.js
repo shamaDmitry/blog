@@ -8,8 +8,17 @@
     PostsService.$inject = ['$resource'];
 
     function PostsService($resource) {
-        var PostsService = $resource('https://jsonplaceholder.typicode.com/posts/:id',
-            {id: '@id'});
+        var PostsService = $resource('https://jsonplaceholder.typicode.com/posts/:id/:comments',
+            {id: '@id'},
+            {
+                getComments: {
+                    params: {
+                        comments: 'comments',
+                    },
+                    method: 'GET',
+                    isArray: true
+                }
+            });
 
         return PostsService;
     }
