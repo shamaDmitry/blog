@@ -42,8 +42,8 @@ gulp.task('inject', function () {
 
     return gulp.src(path.project + '/index.html')
         .pipe(inject(sources))
-        //.pipe(gulp.dest(path.testBuild))
-        .pipe(gulp.dest('/'))
+        .pipe(gulp.dest(path.testBuild))
+        //.pipe(gulp.dest('/'))
         .pipe(debug({
             title: 'lol'
         }))
