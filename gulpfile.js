@@ -9,8 +9,7 @@ var rename = require('gulp-rename');
 var debug = require('gulp-debug');
 var clean = require('gulp-clean');
 var inject = require('gulp-inject');
-var replace = require('gulp-replace-path');
-
+var runSequence = require('run-sequence');
 var historyApiFallback = require('connect-history-api-fallback');
 
 // MyAddings Start
@@ -140,7 +139,7 @@ gulp.task('watch', function() {
     gulp.watch('/bower_components', ['bower_components']);
 });
 
-gulp.task('build', [
+/*gulp.task('build', [
     'minAppJs',
     'stylesheets',
     'html',
@@ -149,7 +148,21 @@ gulp.task('build', [
     'fonts',
     'templates',
     'inject'
-]);
+]);*/
+gulp.task('build', function() {
+    runSequence(
+        [
+            'minAppJs',
+            'stylesheets',
+            'html',
+            'bower_components',
+            'img',
+            'fonts',
+            'templates'
+        ],
+        'inject'
+    );
+});
 
 gulp.task('build-and-watch', [
     'build',
