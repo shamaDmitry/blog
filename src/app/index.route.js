@@ -17,19 +17,19 @@
                 url: '/',
                 templateUrl: templates + 'pages/home/home.html',
                 controller: 'HomeController',
-                controllerAs: 'home'
+                controllerAs: 'vm'
             })
             .state('post', {
                 url: '/post/:id',
                 templateUrl: templates + 'pages/post/post.html',
                 controller: 'PostController',
-                controllerAs: 'post'
+                controllerAs: 'vm'
             })
             .state('about', {
                 url: '/about',
                 templateUrl: templates + 'pages/about/about.html',
                 controller: 'AboutController',
-                controllerAs: 'about'
+                controllerAs: 'vm'
             });
 
         $urlRouterProvider.otherwise('/');
