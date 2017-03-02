@@ -9,7 +9,9 @@ var rename = require('gulp-rename');
 var debug = require('gulp-debug');
 var clean = require('gulp-clean');
 var inject = require('gulp-inject');
-var historyApiFallback = require('connect-history-api-fallback')
+var replace = require('gulp-replace-path');
+
+var historyApiFallback = require('connect-history-api-fallback');
 
 // MyAddings Start
 var uglify = require("gulp-uglify"),            // minificates piped files
@@ -41,7 +43,7 @@ gulp.task('inject', function () {
     ], {read: false});
 
     return gulp.src(path.project + '/index.html')
-        .pipe(inject(sources))
+        .pipe(inject(sources, {ignorePath: '/www'}))
         .pipe(gulp.dest(path.testBuild))
         .pipe(debug({
             title: 'inject'
