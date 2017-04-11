@@ -14,6 +14,9 @@
         vm.postTitle = postId;
         vm.postData = [];
         vm.commentData = [];
+        vm.postText = '';
+        vm.addComment = addComment;
+
 
         getCurrentPost();
         function getCurrentPost() {
@@ -23,6 +26,20 @@
         getComments()
         function getComments() {
             vm.commentData = PostsService.getComments({id: postId});
+        }
+
+        function addComment(comment) {
+            if(!vm.postText) return;
+
+            PostsService.save({
+                body: comment,
+                title: 'lol',
+                userId: postId
+            }, function() {
+                getComments();
+            });
+
+            vm.postText = '';
         }
     }
 

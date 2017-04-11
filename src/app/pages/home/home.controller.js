@@ -12,10 +12,33 @@
 
         vm.pageTitle = 'List of posts';
         vm.posts = [];
+        vm.size = 0;
+        vm.temp = [];
 
-        getPosts()
+        vm.getMorePosts = getMorePosts;
+        vm.checkPostSize = checkPostSize;
+
+        getPosts();
         function getPosts() {
-            vm.posts = PostsService.query();
+            vm.posts =  PostsService.query({
+                _start: vm.size,
+                _limit: 1
+            });
+        }
+
+        function getMorePosts() {
+            PostsService.query({
+                _start: checkPostSize(),
+               _limit: 1
+            }).$promise.then(function(data) {
+                vm.temp = data;
+
+                vm.posts = _.concat(vm.posts, vm.temp);
+            });
+        }
+
+        function checkPostSize() {
+            return vm.posts.length;
         }
     }
 

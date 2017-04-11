@@ -139,16 +139,6 @@ gulp.task('watch', function() {
     gulp.watch('/bower_components', ['bower_components']);
 });
 
-/*gulp.task('build', [
-    'minAppJs',
-    'stylesheets',
-    'html',
-    'bower_components',
-    'img',
-    'fonts',
-    'templates',
-    'inject'
-]);*/
 gulp.task('build', function() {
     runSequence(
         [
@@ -168,11 +158,6 @@ gulp.task('build-and-watch', [
     'build',
     'watch'
 ]);
-
-//gulp.task('build-inject', [
-//    'build',
-//    'inject'
-//]);
 
 gulp.task('default', [
     'build',

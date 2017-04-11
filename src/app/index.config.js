@@ -1,12 +1,12 @@
 // (function () {
-//    'use strict';
+//     'use strict';
 //
-//    angular
-//        .module('blog')
-//        .config(config);
+//     angular
+//         .module('blog')
+//         .config(config);
 //
-//    function config() {
+//     function config() {
 //
-//    }
+//     }
 //
 // })();

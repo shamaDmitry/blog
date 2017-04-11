@@ -7,7 +7,7 @@
                     <small>Secondary Text</small>
                 </h1>
 
-                <div class="b-post" ng-repeat="post in vm.posts | limitTo:10">
+                <div class="b-post" ng-repeat="post in vm.posts">
                     <h2>
                         <a ui-sref="post({id: post.id})">
                             {{ post.title }}
@@ -33,6 +33,11 @@
                     <hr>
                 </div><!--b-post-->
 
+                <div class="text-center">
+                    <button class="btn btn-danger" type="button" ng-click="vm.getMorePosts()">
+                        Load more
+                    </button>
+                </div>
             </div><!--col-->
 
             <div class="col-md-4">
