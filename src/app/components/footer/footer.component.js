@@ -3,23 +3,14 @@
 
     angular
         .module('blog')
-        .directive('myFooter', myFooter);
-
-    function myFooter() {
-        var directive = {
-            restrict: 'E',
+        .component('myFooter', {
             templateUrl: 'templates/components/footer/footer.html',
-            scope: {},
             controller: FooterController,
-            controllerAs: 'vm',
-            bindToController: true
-        };
-
-        return directive;
+            controllerAs: 'vm'
+        });
 
         function FooterController() {
             var vm = this;
         }
-    }
 
 })();

@@ -22,7 +22,7 @@
         function getPosts() {
             vm.posts =  PostsService.query({
                 _start: vm.size,
-                _limit: 1
+                _limit: 2
             });
         }
 

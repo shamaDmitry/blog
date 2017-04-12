@@ -19,33 +19,35 @@
                     <small>Secondary Text</small>
                 </h1>
 
-                <div class="b-post" ng-repeat="post in postData = (vm.posts | filter:vm.query)">
-                    <h2>
+                <ul class="list-unstyled">
+                    <li class="b-post" ng-repeat="post in postData = (vm.posts | filter:vm.query)">
+                        <h2>
+                            <a ui-sref="post({id: post.id})">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+                        <p class="lead">
+                            by <a href="#">Start Bootstrap</a>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-time"></span>
+                            Posted on August 28, 2013 at 10:00 PM
+                        </p>
+                        <hr>
                         <a ui-sref="post({id: post.id})">
-                            {{ post.title }}
+                            <img class="img-responsive" ng-src="https://unsplash.it/1920/{{ 500 + post.id }}" alt="">
                         </a>
-                    </h2>
-                    <p class="lead">
-                        by <a href="#">Start Bootstrap</a>
-                    </p>
-                    <p>
-                        <span class="glyphicon glyphicon-time"></span>
-                        Posted on August 28, 2013 at 10:00 PM
-                    </p>
-                    <hr>
-                    <a ui-sref="post({id: post.id})">
-                        <img class="img-responsive" ng-src="https://unsplash.it/1920/{{ 500 + post.id }}" alt="">
-                    </a>
-                    <hr>
-                    <p>
-                        {{ post.body }}
-                    </p>
-                    <a class="btn btn-primary" ui-sref="post({id: post.id})">
-                        Read More
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <hr>
-                </div><!--b-post-->
+                        <hr>
+                        <p>
+                            {{ post.body }}
+                        </p>
+                        <a class="btn btn-primary" ui-sref="post({id: post.id})">
+                            Read More
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <hr>
+                    </li>
+                </ul>
 
                 <div class="alert alert-danger" ng-if="postData.length == 0">
                     Nothing find <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet consectetur consequatur corporis delectus deleniti, dolor doloremque fugiat illo ipsam laborum modi, necessitatibus perspiciatis quidem vel velit voluptate! Id, praesentium.
