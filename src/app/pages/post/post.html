@@ -2,14 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Blog Post Title {{ vm.postTitle }}</h1>
+                <h1>{{ vm.postTitle }} Blog Post Title</h1>
                 <p class="lead">
                     by <a href="#">Start Bootstrap</a>
                 </p>
                 <hr>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
                 <hr>
-                <img class="img-responsive" src="http://placehold.it/1920x500" alt="">
+                <img class="img-responsive" ng-src="https://unsplash.it/1920/{{ 500 + +vm.postTitle }}" alt="">
                 <hr>
                 <p class="lead">
                     {{ vm.postData.title }}

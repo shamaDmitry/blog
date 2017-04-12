@@ -29,11 +29,9 @@
         function getMorePosts() {
             PostsService.query({
                 _start: checkPostSize(),
-               _limit: 1
+               _limit: 2
             }).$promise.then(function(data) {
-                vm.temp = data;
-
-                vm.posts = _.concat(vm.posts, vm.temp);
+                vm.posts = _.concat(vm.posts, data);
             });
         }
 
