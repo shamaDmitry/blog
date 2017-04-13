@@ -22,14 +22,14 @@
         function getPosts() {
             vm.posts =  PostsService.query({
                 _start: vm.size,
-                _limit: 2
+                _limit: 3
             });
         }
 
         function getMorePosts() {
             PostsService.query({
                 _start: checkPostSize(),
-               _limit: 2
+               _limit: 3
             }).$promise.then(function(data) {
                 vm.posts = _.concat(vm.posts, data);
             });
