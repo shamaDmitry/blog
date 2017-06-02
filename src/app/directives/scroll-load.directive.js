@@ -9,9 +9,7 @@
             var directive = {
                 restrict: 'A',
                 link: function (scope, elem, attrs) {
-                    console.log('scope', scope);
-                    console.log('elem', elem);
-                    console.log('attrs', attrs);
+
                 }
             };
 

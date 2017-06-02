@@ -25,9 +25,19 @@
                 <div class="well">
                     <h4>Leave a Comment:</h4>
 
-                    <form ng-submit="vm.addComment(vm.postText)">
+                    <form ng-submit="vm.addComment(vm.comment)">
                         <div class="form-group">
-                            <textarea class="form-control" ng-model="vm.postText"></textarea>
+                            <label>Title</label>
+                            <input type="text" class="form-control" placeholder="Title" ng-model="vm.comment.title">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" placeholder="Email" ng-model="vm.comment.email">
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" ng-model="vm.comment.commentText"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
