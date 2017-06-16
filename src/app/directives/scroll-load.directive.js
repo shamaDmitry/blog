@@ -6,12 +6,13 @@
         .directive('scrollLoad', scrollLoad);
 
         function scrollLoad() {
+
             var directive = {
-                restrict: 'A',
-                link: function (scope, elem, attrs) {
-                    console.log('scope', scope);
-                    console.log('elem', elem);
-                    console.log('attrs', attrs);
+                restrict: 'E',
+                transclude: true,
+                templateUrl: '/templates/directives/scroll-load.html',
+                scope: {
+                    name: '='
                 }
             };
 

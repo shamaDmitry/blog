@@ -19,7 +19,7 @@
                     <small>Secondary Text</small>
                 </h1>
 
-                <ul class="w-posts list-unstyled" scroll-load>
+                <ul class="w-posts list-unstyled">
                     <li class="b-post" ng-repeat="post in postData = (vm.posts | filter:vm.query)">
                         <h2>
                             <a ui-sref="post({id: post.id})">
@@ -28,6 +28,7 @@
                         </h2>
                         <p class="lead">
                             by <a href="#">{{ post.id }} Start Bootstrap</a>
+                            <!--by <a href="#">{{ '2013-12-09T23:46:15.186Z' | date:'dd.MM.yyyy HH:mm:ss'}} Start Bootstrap</a>-->
                         </p>
                         <p>
                             <span class="glyphicon glyphicon-time"></span>

@@ -5,9 +5,9 @@
         .module('blog')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$log', 'PostsService']
+    HomeController.$inject = ['$rootScope', '$log', 'PostsService']
 
-    function HomeController($log, PostsService) {
+    function HomeController($rootScope, $log, PostsService) {
         var vm = this;
 
         vm.pageTitle = 'List of posts';
