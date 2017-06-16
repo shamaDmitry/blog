@@ -1,47 +1,64 @@
 <section class="b-content">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="vm.query.title" ng-model-options="{ debounce: 300 }">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div><!--input-group -->
+                </div><!--well-->
+
                 <h1 class="page-header">
                     {{ vm.pageTitle }}
                     <small>Secondary Text</small>
                 </h1>
 
-                <div class="b-post" ng-repeat="post in vm.posts">
-                    <h2>
+                <ul class="w-posts list-unstyled">
+                    <li class="b-post" ng-repeat="post in postData = (vm.posts | filter:vm.query)">
+                        <h2>
+                            <a ui-sref="post({id: post.id})">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+                        <p class="lead">
+                            by <a href="#">{{ post.id }} Start Bootstrap</a>
+                            <!--by <a href="#">{{ '2013-12-09T23:46:15.186Z' | date:'dd.MM.yyyy HH:mm:ss'}} Start Bootstrap</a>-->
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-time"></span>
+                            Posted on August 28, 2013 at 10:00 PM
+                        </p>
+                        <hr>
                         <a ui-sref="post({id: post.id})">
-                            {{ post.title }}
+                            <img class="img-responsive" ng-src="https://unsplash.it/1920/{{ 500 + post.id }}" alt="">
                         </a>
-                    </h2>
-                    <p class="lead">
-                        by <a href="#">Start Bootstrap</a>
-                    </p>
-                    <p>
-                        <span class="glyphicon glyphicon-time"></span>
-                        Posted on August 28, 2013 at 10:00 PM
-                    </p>
-                    <hr>
-                    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                    <hr>
-                    <p>
-                        {{ post.body }}
-                    </p>
-                    <a class="btn btn-primary" ui-sref="post({id: post.id})">
-                        Read More
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <hr>
-                </div><!--b-post-->
+                        <hr>
+                        <p>
+                            {{ post.body }}
+                        </p>
+                        <a class="btn btn-primary" ui-sref="post({id: post.id})">
+                            Read More
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <hr>
+                    </li>
+                </ul><!--w-posts-->
+
+                <div class="alert alert-danger" ng-if="postData.length == 0">
+                    Nothing find <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet consectetur consequatur corporis delectus deleniti, dolor doloremque fugiat illo ipsam laborum modi, necessitatibus perspiciatis quidem vel velit voluptate! Id, praesentium.
+                </div>
 
                 <div class="text-center">
                     <button class="btn btn-danger" type="button" ng-click="vm.getMorePosts()">
                         Load more
                     </button>
                 </div>
-            </div><!--col-->
-
-            <div class="col-md-4">
-                <sidebar></sidebar>
             </div><!--col-->
         </div><!--row -->
     </div><!--container-->

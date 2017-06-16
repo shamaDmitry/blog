@@ -5,9 +5,9 @@
         .module('blog')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$log', 'PostsService']
+    HomeController.$inject = ['$rootScope', '$log', 'PostsService']
 
-    function HomeController($log, PostsService) {
+    function HomeController($rootScope, $log, PostsService) {
         var vm = this;
 
         vm.pageTitle = 'List of posts';
@@ -22,18 +22,16 @@
         function getPosts() {
             vm.posts =  PostsService.query({
                 _start: vm.size,
-                _limit: 1
+                _limit: 3
             });
         }
 
         function getMorePosts() {
             PostsService.query({
                 _start: checkPostSize(),
-               _limit: 1
+               _limit: 3
             }).$promise.then(function(data) {
-                vm.temp = data;
-
-                vm.posts = _.concat(vm.posts, vm.temp);
+                vm.posts = _.concat(vm.posts, data);
             });
         }
 

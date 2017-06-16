@@ -14,7 +14,10 @@
         vm.postTitle = postId;
         vm.postData = [];
         vm.commentData = [];
-        vm.postText = '';
+        // vm.postText = '';
+        vm.comment = {
+            userId: postId
+        };
         vm.addComment = addComment;
 
 
@@ -29,17 +32,20 @@
         }
 
         function addComment(comment) {
-            if(!vm.postText) return;
+            console.log(comment);
 
-            PostsService.save({
-                body: comment,
-                title: 'lol',
-                userId: postId
-            }, function() {
+            if(!comment.commentText) return;
+
+            PostsService.save(comment, function() {
                 getComments();
             });
 
-            vm.postText = '';
+            resetCommentForm();
+            // vm.postText = '';
+        }
+
+        function resetCommentForm() {
+            vm.comment = {};
         }
     }
 
